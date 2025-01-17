@@ -150,8 +150,9 @@ const Signup = () => {
                     <input
                         type="file"
                         className="p-2 font-bold w-full"
-                        multiple // Allow multiple file selection
+                         // Allow multiple file selection
                         onChange={handleFileChange} // Update files state
+                        multiple="multiple"
                     />
                 </div>
                 <div className="p-4">
