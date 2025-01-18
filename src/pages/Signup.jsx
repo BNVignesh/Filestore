@@ -142,7 +142,7 @@ const Signup = () => {
                 </h1>
             </div>
 
-            <div className="w-[500px] bg-cyan-200 mt-20 mx-auto rounded-[5px] flex-col bg-opacity-70 font-sans shadow-2xl">
+            <div className="w-[500px] bg-blue-200 mt-20 mx-auto rounded-[5px] flex-col bg-opacity-70 font-sans shadow-2xl">
                 <div className="font-bold p-4 text-2xl">
                     First time or need a new code
                 </div>
