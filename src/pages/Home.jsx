@@ -75,7 +75,7 @@ const Home = () => {
             if(response){
                 setUploadResponse("Upload successfully!");
             }
-
+            location.reload();
         }catch (error){
             setUploadResponse("Error uploading file");
             console.log(error);

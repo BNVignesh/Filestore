@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
     const [code, setCode] = useState('');
+    const [status, setStatus] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = async () => {
@@ -16,6 +17,7 @@ const Login = () => {
             }
         } catch (error) {
             console.error('Login failed:', error);
+            setStatus('please enter a valid code');
         }
     };
 
@@ -40,6 +42,9 @@ const Login = () => {
                         placeholder="code please!"
                         onChange={(e) => setCode(e.target.value)}
                     />
+                </div>
+                <div className="p-4 mt-2 text-red-600 font-bold text-center">
+                    {status}
                 </div>
                 <div className={"p-[10px] mt-[10px]"}>
                     <button

@@ -157,7 +157,7 @@ const Signup = () => {
                 </div>
                 <div className="p-4">
                     <button
-                        className="p-2 font-bold text-black rounded bg-neutral-100 text-white hover:bg-neutral-300 w-full"
+                        className="p-2 font-bold text-black rounded bg-neutral-100  hover:bg-neutral-300 w-full"
                         onClick={handleUpload} // Upload files to server
                     >
                         Upload
