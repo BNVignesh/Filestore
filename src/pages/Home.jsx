@@ -108,7 +108,7 @@ const Home = () => {
 
     return (
         <>
-            <div className={"w-full mb-[10px] p-4 bg-blue-400 justify-center text-center font-bold bg-opacity-50"}>
+            <div className={"w-full mb-[15px] p-4 bg-blue-400 justify-center text-center font-bold bg-opacity-50 shadow-2xl"}>
                 <input type="file" className={"m-auto  bg-blue-400 p-2 rounded-[10px] m-[5px] "} onChange={handleFileChange} multiple = "multiple" />
                 <button className={" bg-blue-400 rounded-[5px] p-2 hover:bg-blue-200 m-[5px]"} onClick={uploadFile}>upload</button>
                 <p className={"text-2xl text-cyan-800"}>{uploadResponse}</p>
@@ -123,13 +123,13 @@ const Home = () => {
                         <div className="font-bold text-xl p-4 flex justify-between ">
                             <div>{item.fileName.split(".").pop() || 'Unknown Type'}</div>
                             <div >
-                                <a   href={item.downloadURL || '#'} className={"bg-gray-300 p-2 mt-2 rounded-[10px] hover:bg-gray-400"} onClick={() => (downloadFile(index))}>
+                                <a   href={item.downloadURL || '#'} className={"bg-neutral-200 p-2 mt-2 rounded-[10px] hover:bg-neutral-400"} onClick={() => (downloadFile(index))}>
                                     Download
                                 </a>
                             </div>
                             <div>
                                 <button href={item.deleteURL || '#'}
-                                   className={"bg-gray-300 p-2 rounded-[10px] hover:bg-gray-400"} onClick={() => (deleteFile(index))}>
+                                   className={"bg-neutral-200 p-2 rounded-[10px] hover:bg-neutral-400"} onClick={() => (deleteFile(index))}>
                                     Delete
                                 </button>
                             </div>
