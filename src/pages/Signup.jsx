@@ -136,13 +136,13 @@ const Signup = () => {
 
     return (
         <div>
-            <div className="w-full p-5 mx-auto text-center bg-amber-100">
+            <div className="w-full p-5 mx-auto text-center bg-blue-100 shadow-2xl">
                 <h1 className="m-auto text-3xl font-bold italic text-cyan-800">
                     Welcome to Online File Storage
                 </h1>
             </div>
 
-            <div className="w-[500px] bg-cyan-200 mt-20 mx-auto rounded-2xl flex-col">
+            <div className="w-[500px] bg-cyan-200 mt-20 mx-auto rounded-[5px] flex-col bg-opacity-70 font-sans shadow-2xl">
                 <div className="font-bold p-4 text-2xl">
                     First time or need a new code
                 </div>
@@ -157,7 +157,7 @@ const Signup = () => {
                 </div>
                 <div className="p-4">
                     <button
-                        className="p-2 font-bold rounded bg-red-500 text-white hover:bg-red-300 w-full"
+                        className="p-2 font-bold text-black rounded bg-neutral-100 text-white hover:bg-neutral-300 w-full"
                         onClick={handleUpload} // Upload files to server
                     >
                         Upload

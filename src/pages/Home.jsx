@@ -110,7 +110,7 @@ const Home = () => {
         <>
             <div className={"w-full mb-[10px] p-4 bg-blue-400 justify-center text-center font-bold bg-opacity-50"}>
                 <input type="file" className={"m-auto  bg-blue-400 p-2 rounded-[10px] m-[5px] "} onChange={handleFileChange} multiple = "multiple" />
-                <button className={" bg-blue-400 rounded-[5px] p-2 hover:bg-blue-200 "} onClick={uploadFile}>upload</button>
+                <button className={" bg-blue-400 rounded-[5px] p-2 hover:bg-blue-200 m-[5px]"} onClick={uploadFile}>upload</button>
                 <p className={"text-2xl text-cyan-800"}>{uploadResponse}</p>
 
             </div>
