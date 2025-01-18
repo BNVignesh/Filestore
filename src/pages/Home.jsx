@@ -10,6 +10,8 @@ const Home = () => {
     const [uploadResponse, setUploadResponse] = useState(null);
     const navigate = useNavigate();
 
+    // to get all the files available when page loaded
+
     useEffect(() => {
         const fetchData = async () => {
             const accessCode = localStorage.getItem('code');
@@ -44,9 +46,13 @@ const Home = () => {
         fetchData();
     }, [navigate]);
 
+    //to store the inputed files in file array
+
     const handleFileChange = (e) => {
         setFile(Array.from(e.target.files));
     }
+
+    //to send a request for storing the files in database
 
     const uploadFile = async () =>{
         if(file.length === 0){
@@ -76,6 +82,8 @@ const Home = () => {
         }
     }
 
+    //to send a request for deleting the file
+
     const deleteFile = async (index) =>{
         const response = await axios.delete(`/delete/${keys[index]}`);
         keys.splice(index, 1);
@@ -90,11 +98,19 @@ const Home = () => {
         location.reload();
     }
 
+    //to send a request to download a file
+    const downloadFile = async (index) => {
+        const response = await axios.get(`/download/${keys[index]}`);
+        console.log(response);
+    }
+
+    //rendered page
+
     return (
         <>
-            <div className={"w-full m-[10px] p-4 bg-cyan-400"}>
-                <input type="file" className={"m-auto"} onChange={handleFileChange} multiple = "multiple" />
-                <button className={" bg-cyan-100 rounded-[5px] p-2 hover:bg-emerald-200"} onClick={uploadFile}>upload</button>
+            <div className={"w-full mb-[10px] p-4 bg-blue-400 justify-center text-center font-bold bg-opacity-50"}>
+                <input type="file" className={"m-auto  bg-blue-400 p-2 rounded-[10px] m-[5px] "} onChange={handleFileChange} multiple = "multiple" />
+                <button className={" bg-blue-400 rounded-[5px] p-2 hover:bg-blue-200 "} onClick={uploadFile}>upload</button>
                 <p className={"text-2xl text-cyan-800"}>{uploadResponse}</p>
 
             </div>
@@ -102,18 +118,18 @@ const Home = () => {
 
             <div className="w-full flex m-[10px] gap-3 flex-wrap justify-center">
                 {data.map((item, index) => (
-                    <div key={index} className="bg-emerald-400 w-[400px] rounded-[5px] ">
-                        <div className="font-bold text-4xl p-4">{item.fileName || `File ${index + 1}`}</div>
+                    <div key={index} className="bg-blue-300 bg-opacity-50 w-[400px] rounded-[5px] hover:shadow-2xl">
+                        <div className="font-sans text-4xl p-4">{item.fileName || `File ${index + 1}`}</div>
                         <div className="font-bold text-xl p-4 flex justify-between ">
-                            <div>{item.type || 'Unknown Type'}</div>
+                            <div>{item.fileName.split(".").pop() || 'Unknown Type'}</div>
                             <div >
-                                <a href={item.downloadURL || '#'} download className={"bg-cyan-100 p-2 rounded-1xl hover:bg-emerald-200"}>
+                                <a   href={item.downloadURL || '#'} className={"bg-gray-300 p-2 mt-2 rounded-[10px] hover:bg-gray-400"} onClick={() => (downloadFile(index))}>
                                     Download
                                 </a>
                             </div>
                             <div>
                                 <button href={item.deleteURL || '#'}
-                                   className={"bg-cyan-100 p-2 rounded-1xl hover:bg-emerald-200"} onClick={() => (deleteFile(index))}>
+                                   className={"bg-gray-300 p-2 rounded-[10px] hover:bg-gray-400"} onClick={() => (deleteFile(index))}>
                                     Delete
                                 </button>
                             </div>

@@ -8,7 +8,8 @@ export default defineConfig({
     proxy: {
       '/files': 'http://localhost:8081', // Proxy requests starting with '/files' to your backend
       '/upload':'http://localhost:8081',
-      '/delete' : 'http://localhost:8081'
+      '/delete' : 'http://localhost:8081',
+      '/download' : 'http://localhost:8081'
     },
   },
 });
